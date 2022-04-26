@@ -13,13 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".main.core.navigation.NavigationActivity"
+            android:exported="true" />
+        <activity
             android:name=".main.core.api.view.VectorActivity"
             android:exported="true" />
         <activity
             android:name=".main.core.room.RoomActivity"
             android:exported="true" />
         <activity
-            android:name=".view.mian.MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

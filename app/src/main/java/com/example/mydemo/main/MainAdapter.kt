@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mydemo.databinding.ItemMainBinding
-import com.example.mydemo.view.mian.PageItem
 
 class MainAdapter(private val onItemClick: (PageItem) -> Unit) :
     ListAdapter<PageItem, MainAdapter.CurrencyItemViewHolder>(diffUtil) {
