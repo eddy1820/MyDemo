@@ -9,6 +9,7 @@ import com.example.mydemo.main.core.api.view.VectorActivity
 import com.example.mydemo.main.core.coroutine.view.CoroutineActivity
 import com.example.mydemo.main.core.navigation.NavigationActivity
 import com.example.mydemo.main.core.room.RoomActivity
+import com.example.mydemo.main.core.test.TestActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,7 +21,8 @@ class MainActivity : BaseActivity() {
         PageItem("Room", RoomActivity::class.java),
         PageItem("API", VectorActivity::class.java),
         PageItem("Navigation", NavigationActivity::class.java),
-        PageItem("Coroutine", CoroutineActivity::class.java)
+        PageItem("Coroutine", CoroutineActivity::class.java),
+        PageItem("Test", TestActivity::class.java)
     )
 
 

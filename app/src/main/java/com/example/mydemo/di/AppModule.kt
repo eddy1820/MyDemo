@@ -14,6 +14,7 @@ import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import timber.log.Timber
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.nio.charset.Charset
@@ -113,7 +114,7 @@ class RedirectInterceptor(val context: Context) : Interceptor {
                 // 這裡發起的請求是同步的，重新整理完成token後再增加到header中
                 // 這裡丟擲的錯誤會直接回調 onError
 //                String token = refreshToken();
-                Log.e("==","refreshToken")
+                Timber.e("refreshToken")
                 val token: String =
                     Credentials.basic("userName", "password", Charset.forName("UTF-8"))
                 // 建立新的請求，並增加header

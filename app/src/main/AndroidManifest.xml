@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".main.core.test.TestActivity"
+            android:exported="true" />
+        <activity
             android:name=".main.core.coroutine.view.CoroutineActivity"
             android:exported="true" />
         <activity
