@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="CustomizedView">
+        <attr name="title" format="string" />
+    </declare-styleable>>
+
+    <declare-styleable name="CustomTitleBar">
+        <attr name="customTitle" format="string" />
+        <attr name="customTitleColor" format="color|reference" />
+        <attr name="leftBtnSrc" format="color|reference" />
+        <attr name="leftBtnPadding" format="dimension" />
+        <attr name="rightBtnSrc" format="color|reference" />
+        <attr name="rightLabelText" format="string" />
+        <attr name="background" />
+        <attr name="enableSearchBar" format="boolean" />
+        <attr name="searchBarHint" format="string" />
+        <attr name="isTranslucentBg" format="boolean" />
+    </declare-styleable>
+</resources>
