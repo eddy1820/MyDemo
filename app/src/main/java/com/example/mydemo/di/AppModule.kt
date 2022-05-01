@@ -2,9 +2,17 @@ package com.example.mydemo.di
 
 import android.content.Context
 import android.util.Log
+import androidx.room.Room
 import androidx.viewbinding.BuildConfig
 import com.example.mydemo.db.AppDatabase
 import com.example.mydemo.base.BaseApplication
+import com.example.mydemo.main.core.shopping.data.local.ShoppingDao
+import com.example.mydemo.main.core.shopping.data.local.ShoppingItemDatabase
+import com.example.mydemo.main.core.shopping.data.remote.PixabayAPI
+import com.example.mydemo.main.core.shopping.other.Constants.BASE_URL
+import com.example.mydemo.main.core.shopping.other.Constants.DATABASE_NAME
+import com.example.mydemo.main.core.shopping.repositories.DefaultShoppingRepository
+import com.example.mydemo.main.core.shopping.repositories.ShoppingRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -70,6 +78,37 @@ object AppModule {
     @Provides
     fun provideCurrencyDao(db: AppDatabase) = db.getCurrencyDao()
 
+
+    //------- shopping --------
+    @Singleton
+    @Provides
+    fun provideShoppingItemDatabase(
+        @ApplicationContext context: Context
+    ) = Room.databaseBuilder(context, ShoppingItemDatabase::class.java, DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun provideShoppingDao(
+        database: ShoppingItemDatabase
+    ) = database.shoppingDao()
+
+    @Singleton
+    @Provides
+    fun providePixabayApi(): PixabayAPI {
+        return Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .build()
+            .create(PixabayAPI::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDefaultShoppingRepository(
+        dao: ShoppingDao,
+        api: PixabayAPI
+    ) = DefaultShoppingRepository(dao, api) as ShoppingRepository
+    //------- shopping --------
 }
 
 private fun createResponse(chain: Interceptor.Chain, request: Request, token: String): Response {
