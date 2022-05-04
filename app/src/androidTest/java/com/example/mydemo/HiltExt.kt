@@ -14,7 +14,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 @ExperimentalCoroutinesApi
 inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     fragmentArgs: Bundle? = null,
-    themeResId: Int = R.style.FragmentScenarioEmptyFragmentActivityTheme,
+    //themeResId: Int = R.style.FragmentScenarioEmptyFragmentActivityTheme,
     fragmentFactory: FragmentFactory? = null,
     crossinline action: T.() -> Unit = {}
 ) {
@@ -23,7 +23,7 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
             ApplicationProvider.getApplicationContext(),
             HiltTestActivity::class.java
         )
-    ).putExtra(FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
+    )//.putExtra(FragmentScenario.EmptyFragmentActivity.THEME_EXTRAS_BUNDLE_KEY, themeResId)
 
     ActivityScenario.launch<HiltTestActivity>(mainActivityIntent).onActivity { activity ->
         fragmentFactory?.let {
@@ -43,15 +43,3 @@ inline fun <reified T : Fragment> launchFragmentInHiltContainer(
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -46,13 +46,6 @@ class ShoppingDaoTest {
     }
 
     @Test
-    fun testLaunchFragmentInHiltContainer() {
-        launchFragmentInHiltContainer<ShoppingFragment> {
-            assertThat(getX()).isEqualTo(100)
-        }
-    }
-
-    @Test
     fun insertShoppingItem() = runTest {
         val item = ShoppingItem("dog", 20, 2.0f, "url", 1)
         dao.insertShoppingItem(item)

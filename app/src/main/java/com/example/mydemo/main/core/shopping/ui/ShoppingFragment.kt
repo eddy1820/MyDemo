@@ -1,25 +1,39 @@
 package com.example.mydemo.main.core.shopping.ui
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-import androidx.activity.viewModels
+import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
-import com.example.mydemo.R
-import com.example.mydemo.main.core.coroutine.viewmodel.CoroutineViewModel
+import androidx.navigation.fragment.findNavController
+import com.example.mydemo.databinding.FragmentShoppingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ShoppingFragment : Fragment(R.layout.fragment_shopping) {
-
-//    lateinit var viewModel: ShoppingViewModel
+class ShoppingFragment : Fragment() {
+    val binding by lazy { FragmentShoppingBinding.inflate(layoutInflater) }
     private val viewModel by activityViewModels<ShoppingViewModel>()
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-//        viewModel = ViewModelProvider(requireActivity()).get(ShoppingViewModel::class.java)
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        return binding.root
     }
 
-    fun getX() = viewModel.getXXX()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.fabAddShoppingItem.setOnClickListener {
+            findNavController().navigate(
+                ShoppingFragmentDirections.actionShoppingFragmentToAddShoppingItemFragment()
+            )
+        }
+        requireActivity().onBackPressedDispatcher.addCallback {
+            requireActivity().finish()
+        }
+    }
 
 }

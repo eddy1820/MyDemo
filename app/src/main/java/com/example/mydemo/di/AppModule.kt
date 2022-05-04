@@ -4,6 +4,9 @@ import android.content.Context
 import android.util.Log
 import androidx.room.Room
 import androidx.viewbinding.BuildConfig
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.example.mydemo.R
 import com.example.mydemo.db.AppDatabase
 import com.example.mydemo.base.BaseApplication
 import com.example.mydemo.main.core.shopping.data.local.ShoppingDao
@@ -68,6 +71,15 @@ object AppModule {
 //    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .build()
 
+    @Singleton
+    @Provides
+    fun provideGlideInstance(
+        @ApplicationContext context: Context
+    ) = Glide.with(context).setDefaultRequestOptions(
+        RequestOptions()
+            .placeholder(R.drawable.ic_image)
+            .error(R.drawable.ic_image)
+    )
 
     @Singleton
     @Provides
@@ -101,13 +113,6 @@ object AppModule {
             .build()
             .create(PixabayAPI::class.java)
     }
-
-    @Singleton
-    @Provides
-    fun provideDefaultShoppingRepository(
-        dao: ShoppingDao,
-        api: PixabayAPI
-    ) = DefaultShoppingRepository(dao, api) as ShoppingRepository
     //------- shopping --------
 }
 
