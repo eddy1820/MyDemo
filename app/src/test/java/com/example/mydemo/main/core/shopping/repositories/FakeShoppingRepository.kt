@@ -47,12 +47,14 @@ class FakeShoppingRepository : ShoppingRepository {
     }
 
     override suspend fun searchForImage(imageQuery: String): Resource<ImageResponse> {
-        return if(shouldReturnNetworkError) {
+        return if (shouldReturnNetworkError) {
             Resource.error("Error", null)
         } else {
             Resource.success(ImageResponse(listOf(), 0, 0))
         }
     }
+
+    override fun getXXX(): Int = 100
 }
 
 
