@@ -8,6 +8,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 class FlowActivity : AppCompatActivity() {
     private val binding by lazy { ActivityFlowBinding.inflate(layoutInflater) }
@@ -17,8 +19,39 @@ class FlowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.btn.setOnClickListener {
+        binding.btn1.setOnClickListener {
+            test1()
+        }
+
+        binding.btn2.setOnClickListener {
+            test2()
+        }
+
+        binding.btn3.setOnClickListener {
             test3()
+        }
+
+        binding.btn4.setOnClickListener {
+            Timber.e("start click")
+            lifecycleScope.launch {
+                Timber.e("start")
+                val result = test4(true)
+                Timber.e("get $result")
+                Timber.e("end")
+            }
+            Timber.e("end click")
+        }
+
+    }
+
+    private suspend fun test4(isTure: Boolean): Int {
+        return suspendCoroutine { continuation ->
+            if (isTure) {
+                Thread.sleep(3000L)
+                continuation.resume(1)
+            } else {
+                continuation.resume(2)
+            }
         }
     }
 
