@@ -1,15 +1,12 @@
 package com.example.mydemo.main.core.coroutine.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.*
-import com.bumptech.glide.load.DataSource
 import com.example.mydemo.base.BaseViewModel
 import com.example.mydemo.dto.Resource
 import com.example.mydemo.model.VectorResponse
 import com.example.mydemo.repository.CurrencyRepository
 import com.example.mydemo.repository.InterviewRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.rxkotlin.addTo
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import timber.log.Timber
@@ -31,22 +28,22 @@ class CoroutineViewModel @Inject constructor(
 
     private val handler = CoroutineExceptionHandler { _, exception ->
         println("CoroutineExceptionHandler got $exception")
-         Timber.e( exception.toString())
+        Timber.e(exception.toString())
     }
 
     fun getData1() {
         viewModelScope.launch(Dispatchers.IO) {
             interViewRepository.getVectorWithFlow()
                 .catch {
-                     Timber.e( "catch exception : $this")
+                    Timber.e("catch exception : $this")
                 }
                 .collect {
                     if (it.isSuccess()) {
                         it.res?.let {
-                             Timber.e( "is Success : $it")
+                            Timber.e("is Success : $it")
                         }
                     } else {
-                         Timber.e( "is Fail : $it")
+                        Timber.e("is Fail : $it")
                     }
                 }
         }
@@ -57,16 +54,16 @@ class CoroutineViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             interViewRepository.getVectorWithFlow2()
                 .catch {
-                     Timber.e( "catch exception : $this")
+                    Timber.e("catch exception : $this")
                 }
                 .collect {
                     if (it.isSuccess()) {
                         it.res?.let {
-                             Timber.e( "is Success : $it")
+                            Timber.e("is Success : $it")
                         }
 
                     } else {
-                         Timber.e( "is Fail : $it")
+                        Timber.e("is Fail : $it")
                     }
                 }
         }
@@ -76,15 +73,15 @@ class CoroutineViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             interViewRepository.getVectorWithFlow3()
                 .catch {
-                     Timber.e( "catch exception : $this")
+                    Timber.e("catch exception : $this")
                 }
                 .collect {
                     if (it.isSuccess()) {
                         it.res?.let {
-                             Timber.e( "is Success : $it")
+                            Timber.e("is Success : $it")
                         }
                     } else {
-                         Timber.e( "is Fail : $it")
+                        Timber.e("is Fail : $it")
                     }
                 }
         }
@@ -98,11 +95,11 @@ class CoroutineViewModel @Inject constructor(
                 interViewRepository.getVectorWithFlow3()
             ) { data1, data2 ->
 
-                 Timber.e( "data1 : $data1")
-                 Timber.e( "data2 : $data2")
+                Timber.e("data1 : $data1")
+                Timber.e("data2 : $data2")
 
             }.catch {
-                 Timber.e( "catch exception : $this")
+                Timber.e("catch exception : $this")
             }.collect {
 
             }
@@ -129,7 +126,7 @@ class CoroutineViewModel @Inject constructor(
             combine(f1, f2, f3) { list, list2, list3 ->
                 list + list2 + list3
             }.collect {
-                 Timber.e( "collect : $it")
+                Timber.e("collect : $it")
             }
             // E/==: !![1, 2, 3, 4, 5, 6]
         }

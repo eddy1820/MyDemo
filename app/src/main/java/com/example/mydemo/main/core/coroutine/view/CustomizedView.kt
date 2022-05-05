@@ -10,7 +10,7 @@ import com.example.mydemo.databinding.ViewCustomizedBinding
 class CustomizedView constructor(context: Context, attributeSet: AttributeSet) :
     RelativeLayout(context, attributeSet) {
 
-    val binding = ViewCustomizedBinding.inflate(LayoutInflater.from(context), this, false)
+    private val binding = ViewCustomizedBinding.inflate(LayoutInflater.from(context), this, false)
 
     init {
         addView(binding.root)
@@ -23,5 +23,10 @@ class CustomizedView constructor(context: Context, attributeSet: AttributeSet) :
 
     fun initView() {
 
+    }
+
+
+    fun setText(text: String) {
+        binding.titleLabel.text = text
     }
 }

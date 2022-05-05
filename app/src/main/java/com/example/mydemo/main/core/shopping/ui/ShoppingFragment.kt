@@ -63,10 +63,10 @@ class ShoppingFragment : Fragment() {
         override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
             val pos = viewHolder.layoutPosition
             val item = shoppingItemAdapter.shoppingItems[pos]
-            viewModel?.deleteShoppingItem(item)
+            viewModel.deleteShoppingItem(item)
             Snackbar.make(requireView(), "Successfully deleted item", Snackbar.LENGTH_LONG).apply {
                 setAction("Undo") {
-                    viewModel?.insertShoppingItemIntoDb(item)
+                    viewModel.insertShoppingItemIntoDb(item)
                 }
                 show()
             }

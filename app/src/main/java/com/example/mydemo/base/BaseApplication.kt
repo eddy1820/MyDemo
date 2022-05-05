@@ -15,7 +15,7 @@ class BaseApplication : Application() {
                 override fun createStackElementTag(e: StackTraceElement): String {
 //                    return super.createStackElementTag(e)
 //                    return "[${super.createStackElementTag(e)}][${e.methodName}]"
-                    return "(${e.fileName}:${e.lineNumber})#${e.methodName}"
+                    return "(${e.fileName}:${e.lineNumber})#${e.methodName}|${Thread.currentThread().name}"
                 }
             })
         }
