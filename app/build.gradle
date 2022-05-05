@@ -117,6 +117,7 @@ dependencies {
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.1"
     testImplementation "com.google.truth:truth:1.1.3"
     testImplementation "org.mockito:mockito-core:4.5.1"
+    testImplementation "app.cash.turbine:turbine:0.8.0" // coroutine flow test
 
     // Instrumented Unit Tests
     androidTestImplementation "junit:junit:4.13.2"
@@ -125,15 +126,17 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
     androidTestImplementation "com.google.truth:truth:1.1.3"
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'app.cash.turbine:turbine:0.8.0' // coroutine flow test
+    androidTestImplementation "org.mockito:mockito-core:4.5.1"
+    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
+    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.41'
+    debugImplementation "androidx.fragment:fragment-testing:1.5.0-beta01"
+
 //    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 //    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.4.0'
 //    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.4.0'
 //    androidTestImplementation 'androidx.test:runner:1.4.0'
 //    androidTestImplementation 'androidx.test:rules:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
-    androidTestImplementation "org.mockito:mockito-core:4.5.1"
-    androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
-    kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.41'
-    debugImplementation "androidx.fragment:fragment-testing:1.5.0-beta01"
 }

@@ -7,6 +7,7 @@ import com.example.mydemo.base.BaseActivity
 import com.example.mydemo.databinding.ActivityMainBinding
 import com.example.mydemo.main.core.api.view.VectorActivity
 import com.example.mydemo.main.core.coroutine.view.CoroutineActivity
+import com.example.mydemo.main.core.flow.FlowActivity
 import com.example.mydemo.main.core.navigation.NavigationActivity
 import com.example.mydemo.main.core.room.RoomActivity
 import com.example.mydemo.main.core.shopping.ShoppingActivity
@@ -23,6 +24,7 @@ class MainActivity : BaseActivity() {
         PageItem("API", VectorActivity::class.java),
         PageItem("Navigation", NavigationActivity::class.java),
         PageItem("Coroutine", CoroutineActivity::class.java),
+        PageItem("Flow", FlowActivity::class.java),
         PageItem("Test", TestActivity::class.java),
         PageItem("Shopping", ShoppingActivity::class.java),
     )
