@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class InterviewRepository(private val interviewService: InterviewService) {
-    fun getVector() = interviewService.getVector().ioToUi()
+    suspend fun getVector() = interviewService.getVectorWithFlow()
 
     //successful
     suspend fun getVectorWithFlow(): Flow<Resource<VectorResponse>> {
