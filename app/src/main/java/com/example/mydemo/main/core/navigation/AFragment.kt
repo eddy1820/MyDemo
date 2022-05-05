@@ -47,10 +47,15 @@ class AFragment : Fragment() {
                 return@setOnClickListener
             }
             val navControl = Navigation.findNavController(it)
-            val bundle = Bundle().apply {
-                putString("NAME", binding.edit.text.toString())
-            }
-            navControl.navigate(R.id.action_AFragment_to_BFragment, bundle)
+//            val bundle = Bundle().apply {
+//                putString("NAME", binding.edit.text.toString())
+//            }
+//            navControl.navigate(R.id.action_AFragment_to_BFragment, bundle)
+
+
+            val direction =
+                AFragmentDirections.actionAFragmentToBFragment(titleName = binding.edit.text.toString())
+            navControl.navigate(direction)
         }
         //binding.btn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_BFragment_to_AFragment))湉
     }

@@ -17,5 +17,11 @@
         android:id="@+id/BFragment"
         android:name="com.example.mydemo.main.core.navigation.BFragment"
         android:label="fragment_b"
-        tools:layout="@layout/fragment_b" />
+        tools:layout="@layout/fragment_b">
+        <argument
+            android:name="titleName"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
 </navigation>

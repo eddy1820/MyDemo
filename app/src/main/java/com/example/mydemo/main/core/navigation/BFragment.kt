@@ -6,25 +6,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
-import com.example.mydemo.R
+import androidx.navigation.fragment.navArgs
 import com.example.mydemo.databinding.FragmentBBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class BFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
 
     val binding by lazy { FragmentBBinding.inflate(layoutInflater) }
+
+    private val args: BFragmentArgs by navArgs()
 
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             BFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
                 }
             }
     }
@@ -32,8 +30,6 @@ class BFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -51,7 +47,8 @@ class BFragment : Fragment() {
             val navController = Navigation.findNavController(it)
             navController.popBackStack()
         }
-        val name = arguments?.getString("NAME")
+//        val name = arguments?.getString("NAME")
+        val name = args.titleName
         binding.titleLabel.text = name
     }
 
