@@ -64,7 +64,7 @@ class ImagePickFragmentTest {
                 Navigation.setViewNavController(requireView(), navController)
             }
             imageAdapter.images = listOf(imageUrl)
-
+            assertThat(fragment?.viewModel?.getXXX()).isEqualTo(200)
             fragment = this
         }
 
