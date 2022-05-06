@@ -65,7 +65,7 @@ class ImagePickFragmentTest {
             }
             imageAdapter.images = listOf(imageUrl)
             fragment = this
-            assertThat(fragment?.viewModel?.getXXX()).isEqualTo(100)
+            assertThat(fragment?.viewModel?.getXXX()).isEqualTo(200)
         }
 
         onView(withId(R.id.rvImages)).perform(
