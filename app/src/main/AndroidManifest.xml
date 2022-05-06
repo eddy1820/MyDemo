@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
         <activity
+            android:name=".main.core.test.Test2Activity"
+            android:exported="true" />
+        <activity
             android:name=".main.core.flow.FlowActivity"
             android:exported="true" />
         <activity

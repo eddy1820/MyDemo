@@ -144,6 +144,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.3.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:core:1.4.0'
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'
     androidTestImplementation 'app.cash.turbine:turbine:0.8.0' // coroutine flow test
     androidTestImplementation "org.mockito:mockito-core:4.5.1"
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.41'
