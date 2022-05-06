@@ -44,7 +44,7 @@ jobs:
         run: ./gradlew test
 
       - name: Android unit test
-      - uses: reactivecircus/android-emulator-runner@v2
+        uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: default
