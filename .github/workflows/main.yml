@@ -36,6 +36,12 @@ jobs:
 
       - name: Clean project
         run: ./gradlew clean
+
+      - name: Unit test
+        run: ./gradlew test
+
+      - name: Android unit test
+        run: ./gradlew cAT
         
       - name: Build with Gradle
         run: ./gradlew app:assembleDebug
