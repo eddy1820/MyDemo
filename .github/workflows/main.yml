@@ -43,13 +43,14 @@ jobs:
       - name: Unit test
         run: ./gradlew test
 
+      - name: Android unit test
       - uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
           target: default
-          arch: x86
-          profile: Pixel 5 API 30
-          script: ./gradlew connectedDebugAndroidTest -Pcucumber -Ptags="@e2e"
+          arch: x86_64
+          profile: Nexus 6
+          script: ./gradlew connectedDebugAndroidTest
         
       - name: Build with Gradle
         run: ./gradlew app:assembleDebug
