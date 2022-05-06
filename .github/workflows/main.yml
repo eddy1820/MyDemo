@@ -40,13 +40,13 @@ jobs:
       - name: Unit test
         run: ./gradlew test
 
-      uses: reactivecircus/android-emulator-runner@v2
+      - uses: reactivecircus/android-emulator-runner@v2
         with:
-        api-level: 23
-        target: default
-        arch: x86
-        profile: Nexus 6
-        script: ./gradlew connectedCheck --stacktrace
+          api-level: 23
+          target: default
+          arch: x86
+          profile: Nexus 6
+          script: ./gradlew connectedCheck --stacktrace
 
       - name: Android unit test
         run: ./gradlew cAT
