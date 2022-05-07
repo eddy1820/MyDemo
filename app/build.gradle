@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
         buildConfigField("String", "API_KEY", API_KEY)
-
+        setProperty("archivesBaseName", "v${versionName}-${getCurrentTime()}")
         testInstrumentationRunner "com.example.mydemo.HiltTestRunner"
     }
 
@@ -61,6 +61,10 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+}
+
+static def getCurrentTime() {
+    return new Date().format("yyyyMMddHHmm")
 }
 
 dependencies {
