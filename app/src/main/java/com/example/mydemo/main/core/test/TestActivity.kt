@@ -24,7 +24,7 @@ class TestActivity : AppCompatActivity() {
             )
 
             if (result) {
-                startActivity(Intent(this, Test2Activity::class.java))
+                Test2Activity.start(this)
             } else {
                 Toast.makeText(this, getString(R.string.wrong_information), Toast.LENGTH_SHORT)
                     .show()
