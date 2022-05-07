@@ -52,13 +52,16 @@ jobs:
           profile: Nexus 6
           script: ./gradlew connectedDebugAndroidTest
 
-      - name: Build with Gradle
+      - name: Generate APK
         run: ./gradlew app:assemble
+
+      - name: Generate AAB
+        run: ./gradlew app:bundle
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.0.0
         with:
-          name: app_apk
-          path: ./app/build/outputs/apk/release/app-release.apk
+          name: Android_app
+          path: ./app/build/outputs/
           if-no-files-found: error
           retention-days: 90
