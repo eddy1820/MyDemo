@@ -243,7 +243,7 @@ fun String.getTailNumber(): String = this.takeLast(4)
 fun String.convertDashTimeByFormat(
     toFormat: String = DateTime.YYYYMMDDHHMM_DASH,
     fromFormat: String = DateTime.YYYYMMDDHHMM_DASH,
-): String =
+): String? =
     (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
         DateTime.getDateStrByFormat(fromFormat, toFormat, it)
     }
@@ -251,7 +251,7 @@ fun String.convertDashTimeByFormat(
 fun String.convertDashTimeByFormatSeconds(
     toFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
     fromFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
-): String =
+): String? =
     (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
         DateTime.getDateStrByFormat(fromFormat, toFormat, it)
     }
