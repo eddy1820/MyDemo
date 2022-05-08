@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.mydemo"
-        minSdk 21
+        minSdk 24
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -127,6 +127,9 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Zxing
+    implementation 'com.journeyapps:zxing-android-embedded:4.0.2'
 
     // Local Unit Tests
     implementation "androidx.test:core:1.4.0"
