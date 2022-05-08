@@ -156,17 +156,27 @@ object DateTime {
         }
     }
 
-    fun getDateStrByFormat(fromFormat: String, toFormat: String, target: String): String =
-        SimpleDateFormat(fromFormat, Locale.getDefault()).let {
-            it.timeZone = TimeZone.getDefault()
-            return SimpleDateFormat(toFormat, Locale.getDefault()).format(it.parse(target))
+    fun getDateStrByFormat(fromFormat: String, toFormat: String, target: String): String? =
+        try {
+            val sdf = SimpleDateFormat(fromFormat, Locale.getDefault())
+            sdf.timeZone = TimeZone.getDefault()
+            sdf.parse(target)?.let {
+                SimpleDateFormat(toFormat, Locale.getDefault()).format(it)
+            }
+        } catch (e: Exception) {
+            Timber.tag(TAG).e(
+                e.message,
+                "[getDateStrByFormat]: $target parse failed. fromFormat=${fromFormat.toPattern()} toFormat=${toFormat.toPattern()}"
+            )
+            null
         }
+
 
     fun getDateStrByFormat(
         fromFormat: SimpleDateFormat,
         toFormat: SimpleDateFormat,
         target: String
-    ) =
+    ): String? =
         try {
             fromFormat.parse(target)?.let {
                 toFormat.format(it)
