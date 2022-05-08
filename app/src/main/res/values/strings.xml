@@ -3,6 +3,7 @@
     <string name="my_title">My Title</string>
     <string name="detail_page">Detail Page</string>
     <string name="wrong_information">Wrong Information</string>
+    <string name="title_activity_compose">ComposeActivity</string>
 
 
 </resources>

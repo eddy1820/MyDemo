@@ -1,11 +1,12 @@
 package com.example.mydemo.main
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mydemo.base.BaseActivity
 import com.example.mydemo.databinding.ActivityMainBinding
 import com.example.mydemo.main.core.api.view.VectorActivity
+import com.example.mydemo.main.core.compose.ComposeActivity
 import com.example.mydemo.main.core.coroutine.view.CoroutineActivity
 import com.example.mydemo.main.core.flow.FlowActivity
 import com.example.mydemo.main.core.navigation.NavigationActivity
@@ -29,6 +30,7 @@ class MainActivity : BaseActivity() {
         PageItem("Test", TestActivity::class.java),
         PageItem("Shopping", ShoppingActivity::class.java),
         PageItem("WorkManager", WorkerActivity::class.java),
+        PageItem("Compose", ComposeActivity::class.java),
     )
 
 
@@ -41,4 +43,4 @@ class MainActivity : BaseActivity() {
     }
 }
 
-data class PageItem(val title: String, val activityClass: Class<out AppCompatActivity>)
+data class PageItem(val title: String, val activityClass: Class<out Activity>)
