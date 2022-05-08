@@ -11,7 +11,6 @@ import android.widget.Toast
 import androidx.annotation.ColorInt
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
-import java.util.*
 
 fun Context.isAppExist(uri: String): Boolean = try {
     packageManager.getPackageInfo(uri, PackageManager.GET_ACTIVITIES)
@@ -20,25 +19,8 @@ fun Context.isAppExist(uri: String): Boolean = try {
     false
 }
 
-// FIXME: avoid use this, it broken when we remove some resources and APP still can build normally, and we don't know about it
-// it depends on purpose
-// @Deprecated("avoid to use this kind of ways to get resources", ReplaceWith("R.id."))
-private fun Context.getIdentifier(name: String, type: String): Int =
-    resources.getIdentifier(name, type, packageName)
-
 @ColorInt
 fun Context.getSafeColor(res: Int) = if (res != 0) ContextCompat.getColor(this, res) else null
-
-fun Context.getStringIdentifier(name: String): Int? =
-    getIdentifier(name, "string").takeIf { it != 0 }
-
-fun Context.getDrawableIdentifier(name: String): Int? =
-    getIdentifier(name, "drawable").takeIf { it != 0 }
-
-fun Context.getLayoutIdentifier(name: String): Int? =
-    getIdentifier(name, "layout").takeIf { it != 0 }
-
-fun Context.getIdentifier(name: String): Int? = getIdentifier(name, "id").takeIf { it != 0 }
 
 fun Context.copyText(text: String) {
     (this.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager).apply {

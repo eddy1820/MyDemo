@@ -51,7 +51,7 @@ object LiveDataUtils {
         }
 
         override fun run() {
-            liveData.value = data
+            liveData!!.value = data
         }
     }
 }
