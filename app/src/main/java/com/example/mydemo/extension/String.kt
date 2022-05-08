@@ -240,21 +240,21 @@ fun String.noSpecialChar(): Boolean = this.matches(RegexString.NO_SPECIAL_CHARAC
  */
 fun String.getTailNumber(): String = this.takeLast(4)
 
-fun String.convertDashTimeByFormat(
-    toFormat: String = DateTime.YYYYMMDDHHMM_DASH,
-    fromFormat: String = DateTime.YYYYMMDDHHMM_DASH,
-): String? =
-    (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
-        DateTime.getDateStrByFormat(fromFormat, toFormat, it)
-    }
-
-fun String.convertDashTimeByFormatSeconds(
-    toFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
-    fromFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
-): String? =
-    (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
-        DateTime.getDateStrByFormat(fromFormat, toFormat, it)
-    }
+//fun String.convertDashTimeByFormat(
+//    toFormat: String = DateTime.YYYYMMDDHHMM_DASH,
+//    fromFormat: String = DateTime.YYYYMMDDHHMM_DASH,
+//): String? =
+//    (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
+//        DateTime.getDateStrByFormat(fromFormat, toFormat, it)
+//    }
+//
+//fun String.convertDashTimeByFormatSeconds(
+//    toFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
+//    fromFormat: String = DateTime.YYYYMMDDHHMMSS_DASH,
+//): String? =
+//    (if (this.startsWith("20") && !this.startsWith("20-")) this else "20${this}").let {
+//        DateTime.getDateStrByFormat(fromFormat, toFormat, it)
+//    }
 
 /**
  * 含有+-號字串的反向 例: +1.5 -> -1.5
@@ -457,12 +457,6 @@ fun String.parseYearDateTimeSecondToYearDateTimeSecond() =
 // by languages
 fun String.parseYearDateTimeSecondToAppYearDateTimeDash() =
     parseDate(DateTime.FORMAT_YYYYMMDDHHMMSS_DASH, DateTime.FORMAT_YEAR_DATE_TIME_DASH)
-
-fun String.toTimeInMillis(
-    format: String = DateTime.YYYYMMDDHHMMSS_DASH,
-    timeZone: TimeZone = TimeZone.getDefault()
-): Long? =
-    DateTime.getDateByFormat(format, this, timeZone)?.time
 
 fun String.toHiddenName() = take(1) + "**"
 fun String.toHiddenBankCardNo() = "**** **** **** " + takeLast(4)
