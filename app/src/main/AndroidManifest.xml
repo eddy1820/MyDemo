@@ -37,6 +37,9 @@
             android:name=".main.core.room.RoomActivity"
             android:exported="true" />
         <activity
+            android:name=".main.core.worker.WorkerActivity"
+            android:exported="true" />
+        <activity
             android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>

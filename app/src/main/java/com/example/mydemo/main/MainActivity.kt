@@ -12,6 +12,7 @@ import com.example.mydemo.main.core.navigation.NavigationActivity
 import com.example.mydemo.main.core.room.RoomActivity
 import com.example.mydemo.main.core.shopping.ShoppingActivity
 import com.example.mydemo.main.core.test.TestActivity
+import com.example.mydemo.main.core.worker.WorkerActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +28,7 @@ class MainActivity : BaseActivity() {
         PageItem("Flow", FlowActivity::class.java),
         PageItem("Test", TestActivity::class.java),
         PageItem("Shopping", ShoppingActivity::class.java),
+        PageItem("WorkManager", WorkerActivity::class.java),
     )
 
 
